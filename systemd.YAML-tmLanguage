@@ -38,20 +38,16 @@ repository:
       patterns:
       - include: '#value_pair'
       - include: '#comment'
-  string:
+      - include: '#keyword-substition'
+  keyword-substition:
     patterns:
-    - name: string.quoted.double.service
-      begin: '"'
+    - name: keyword.other.service
+      begin: \${
       beginCaptures:
-        '0': {name: punctuation.definition.string.begin.service}
-      end: '"'
+        '0': {name: keyword.other.substitution.begin.service}
+      end: '}'
       endCaptures:
-        '0': {name: punctuation.definition.string.end.service}
-      patterns:
-      - name: constant.character.escape.service
-        match: \\[ntb"\\]
-      - name: invalid.illegal.unknown-escape.service
-        match: '\\.'
+        '0': {name: keyowrd.other.substitution.end.service}
   value_pair:
     patterns:
     - name: meta.value-pair.section-item.service
