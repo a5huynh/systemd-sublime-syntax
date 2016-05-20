@@ -8,6 +8,7 @@ uuid: 9db82014-225f-40fe-b087-d5c2915d1c51
 patterns:
 - include: '#section'
 - include: '#comment'
+- include: '#specifiers'
 
 repository:
   boolean:
@@ -39,6 +40,12 @@ repository:
       - include: '#value_pair'
       - include: '#comment'
       - include: '#keyword-substition'
+  # For special systemd specifiers
+  specifiers:
+    patterns:
+    - name: keyword.other.service
+      match: (\%n|\%N|\%p|\%i)
+  # For environment variables that you set
   keyword-substition:
     patterns:
     - name: keyword.other.service
